@@ -1,6 +1,6 @@
 
 ---
-title: "Leading Lights — Thought Leadership Budget & Engagement Analysis"
+title: "Thought Leadership Budget & Engagement Analysis"
 output: html_document
 date: "2024-08-01"
 ---
@@ -28,7 +28,7 @@ library(reshape2)
 ```{r}
 # Import the dataset
 # Note: Replace 'data/leading_lights_mock_data.xlsx' with the actual path to your file
-leadinglights <- read_excel("data/leading_lights_mock_data.xlsx", sheet = "Raw Data Labels_N=4000") %>%
+tl_data <- read_excel("data/thought_leadership_survey_mock_data.xlsx", sheet = "Raw Data Labels_N=4000") %>%
   clean_names() %>%
   rename(
     revenue = s7,
@@ -40,17 +40,17 @@ leadinglights <- read_excel("data/leading_lights_mock_data.xlsx", sheet = "Raw D
 
 ```{r}
 # View column names
-colnames(leadinglights)
+colnames(tl_data)
 
 # View structure
-str(leadinglights)
+str(tl_data)
 ```
 
 ## 📊 Budget Allocation by Revenue Bracket
 
 ```{r}
 # Create contingency table
-contingency_table <- table(leadinglights$revenue, leadinglights$tl_budget)
+contingency_table <- table(tl_data$revenue, tl_data$tl_budget)
 contingency_df <- as.data.frame(as.table(contingency_table))
 
 # Relabel for clarity
