@@ -1,14 +1,14 @@
 # 📊 Thought Leadership Budget & Engagement Analysis
 
-This project analyzes survey data from 4,000+ professionals across industries to uncover how organizations define and implement thought leadership. It explores how budget size, department ownership, and employee engagement vary by company size and sector — and includes visuals built in R to highlight key trends.
+This project analyzes survey data on how organizations across industries define and implement **thought leadership (TL)**. The analysis explores how budget size, departmental ownership, and employee engagement vary by company size and sector — using visuals created in R.
 
 ---
 
 ## 📁 Files Included
 
-- `ThoughtLeadership.Rmd` – R Markdown file for full analysis and visualization
-- (Optional) `data/thought_leadership_survey_mock_data.xlsx` – Mock or anonymized version of the dataset
-- `visuals/` – Folder containing project visuals (PNG format) used in the analysis and for portfolio presentation
+- `Thought_Leadership_Clean_Final.Rmd` – Cleaned and ready-to-share R Markdown file
+- `data/thought_leadership_survey_mock_data.xlsx` – Anonymized mock survey dataset
+- `visuals/` – Folder containing all output charts (PNG format)
 
 ---
 
@@ -16,39 +16,52 @@ This project analyzes survey data from 4,000+ professionals across industries to
 
 - `tidyverse` for data wrangling
 - `ggplot2` for data visualization
-- `janitor` for cleaning variable names
-- `readxl` for Excel file import
-- `reshape2`, `scales`, `RColorBrewer` for graph enhancements
+- `readxl` and `janitor` for data import and cleaning
+- `scales`, `gridExtra`, `RColorBrewer` for styling enhancements
 
 ---
 
-## 📊 Visualization Sample
+## 📊 Key Visuals
 
-The primary graph uses **faceted bar charts** to show how budget allocations vary by company revenue bracket. The visual helps question assumptions about whether higher-revenue companies invest more in thought leadership.
+### 📌 Thought Leadership Budget by Company Revenue
+![Budget Allocation by Revenue](visuals/tl_budget_vs_revenue_facet.png)
+> **Insight:** Budget allocation is not linear — large companies often spread budgets across both low and high ranges.
 
 ---
 
-## 🔍 Key Insights
+### 📌 Perceived Employee Engagement by Department
+![Engagement by Department](visuals/tl_engagement_by_department.png)
+> **Insight:** When TL is led by the C-Suite or Business Development, employee engagement tends to be perceived as higher.
 
-- **Budget allocation is not linear** with revenue size — large companies often distribute across both low and high tiers.
-- **Business Development and C-Suite leadership** correlate with higher internal engagement in TL.
-- The **mid-range budget ($100k–500k)** appears to be a standard across industries.
+---
+
+### 📌 Budget Ranges by Industry
+![Budget by Industry](visuals/tl_budget_by_industry.png)
+> **Insight:** Most industries center around a mid-range TL budget, but some (like IT and Finance) lean toward larger investments.
+
+---
+
+## 🔍 Summary of Insights
+
+- **Mid-range budgets ($100k–$500k)** are common across sectors
+- **Departmental leadership matters** — engagement is highest when strategic teams lead TL
+- **Budget size does not scale directly** with revenue — priorities, not size, drive investment
 
 ---
 
 ## 🧠 How to Run
 
 1. Open the `.Rmd` file in RStudio
-2. Make sure the Excel file is placed in a folder called `data/`
-3. Knit the file to HTML or run code chunks interactively
+2. Place the Excel file in a folder called `data/`
+3. Knit the file to HTML or run chunks interactively
 
 ---
 
 ## ✨ Author
 
 Jenny Jiménez – Data Journalist & Analyst  
-This project was part of a broader editorial and research initiative focused on leadership and brand strategy.
+This project was created as part of a broader editorial and insight strategy initiative.  
+Mock data was used to protect confidentiality.
 
 ---
 
-*Note: This analysis was built using anonymized or mock data in order to respect confidentiality guidelines.*
