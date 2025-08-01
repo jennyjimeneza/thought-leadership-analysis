@@ -1,0 +1,75 @@
+
+---
+title: "Leading Lights — Thought Leadership Budget & Engagement Analysis"
+output: html_document
+date: "2024-08-01"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+## 📦 Load Libraries
+
+```{r}
+# Core libraries
+library(tidyverse)
+library(readxl)
+library(janitor)
+library(ggplot2)
+library(scales)
+library(gridExtra)
+library(RColorBrewer)
+library(reshape2)
+```
+
+## 📂 Load & Clean Data
+
+```{r}
+# Import the dataset
+# Note: Replace 'data/leading_lights_mock_data.xlsx' with the actual path to your file
+leadinglights <- read_excel("data/leading_lights_mock_data.xlsx", sheet = "Raw Data Labels_N=4000") %>%
+  clean_names() %>%
+  rename(
+    revenue = s7,
+    tl_budget = q2_29
+  )
+```
+
+## 👀 Explore Dataset
+
+```{r}
+# View column names
+colnames(leadinglights)
+
+# View structure
+str(leadinglights)
+```
+
+## 📊 Budget Allocation by Revenue Bracket
+
+```{r}
+# Create contingency table
+contingency_table <- table(leadinglights$revenue, leadinglights$tl_budget)
+contingency_df <- as.data.frame(as.table(contingency_table))
+
+# Relabel for clarity
+colnames(contingency_df) <- c("Revenue_Bracket", "Budget_Bracket", "Count")
+
+# Plot
+ggplot(contingency_df, aes(x = Budget_Bracket, y = Count, fill = Budget_Bracket)) +
+  geom_bar(stat = "identity") +
+  facet_wrap(~Revenue_Bracket, scales = "free_y") +
+  labs(
+    title = "Thought Leadership Budget Allocation by Company Revenue",
+    x = "Budget Range",
+    y = "Number of Responses",
+    fill = "Budget"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+## 📌 Notes
+- This file is anonymized and safe for public viewing.
+- The dataset used here was based on a raw survey and processed using tidyverse tools.
