@@ -8,7 +8,7 @@ This project analyzes survey data from 4,000+ professionals across industries to
 
 - `ThoughtLeadership.Rmd` – R Markdown file for full analysis and visualization
 - (Optional) `data/thought_leadership_survey_mock_data.xlsx` – Mock or anonymized version of the dataset
-- `visuals/` – Folder for charts if you want to export static versions
+- `visuals/` – Folder containing project visuals (PNG format) used in the analysis and for portfolio presentation
 
 ---
 
